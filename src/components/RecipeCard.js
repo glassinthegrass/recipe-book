@@ -1,6 +1,8 @@
 import React from 'react'
 
-const RecipeCard = () => {
+const RecipeCard = (props) => {
+    const { recipes, index } = props
+    
     //Take props in as a parameter.
     // Destructure recipes and index from props.
 
@@ -15,11 +17,11 @@ const RecipeCard = () => {
         return (
             <div className="card">
                 <div className="card-number">
-                    <h2></h2>
+                    <h2>Recipe # {recipes[index].id}</h2>
                 </div>
-                <h1></h1>
-                <ul></ul>
-                <h3></h3>
+                <h1>{recipes[index].title}</h1>
+                <ul>{recipes[index].ingredients.map(element => <li>{element}</li>) }</ul>
+                <h3>Prep Time: {recipes[index].prepTime}</h3>
             </div>
         )
     
